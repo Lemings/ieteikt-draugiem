@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="content" method="upgrade">
+	<name>ieteiktDraugiem</name>
+	<creationDate>23.04.2012</creationDate>
+	<author>Edgars Piruška</author>
+	<authorEmail>lemings@inbox.lv</authorEmail>
+	<authorUrl>www.joomlalv.org</authorUrl>
+	<copyright>Copyright</copyright>
+	<license>License, for example GNU/GPL</license>
+	<version>0.0.1</version>
+	<description>PLG_CONTENT_IETEIKT_DRAUGIEM_XML_DESC</description>
+	<files>
+		<filename plugin="ieteiktDraugiem">ieteiktDraugiem.php</filename>
+		<folder>language</folder>
+	</files>
+<config>
+		<fields name="params">
+
+			<fieldset name="basic">
+				<field name="pefix" type="text" size="32" default="" label="PLG_CONTENT_IETEIKT_DRAUGIEM_PREFIX_LABEL" description="PLG_CONTENT_IETEIKT_DRAUGIEM_PREFIX_DESC" />
+			</fieldset>
+
+		</fields>
+	</config>
+</extension>
