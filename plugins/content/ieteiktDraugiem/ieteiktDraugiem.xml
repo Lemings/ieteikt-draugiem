@@ -1,25 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="plugin" group="content" method="upgrade">
 	<name>ieteiktDraugiem</name>
-	<creationDate>23.04.2012</creationDate>
+	<creationDate>29.06.2012</creationDate>
 	<author>Edgars Piruška</author>
 	<authorEmail>lemings@inbox.lv</authorEmail>
 	<authorUrl>www.joomlalv.org</authorUrl>
 	<copyright>Copyright</copyright>
 	<license>License, for example GNU/GPL</license>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<description>PLG_CONTENT_IETEIKT_DRAUGIEM_XML_DESC</description>
 	<files>
 		<filename plugin="ieteiktDraugiem">ieteiktDraugiem.php</filename>
 		<folder>language</folder>
+		<folder>fields</folder>
+		<folder>assets</folder>
 	</files>
 <config>
-		<fields name="params">
-
+		<fields
+		addfieldpath="/plugins/content/ieteiktDraugiem/fields"
+		name="params">
 			<fieldset name="basic">
-				<field name="pefix" type="text" size="32" default="" label="PLG_CONTENT_IETEIKT_DRAUGIEM_PREFIX_LABEL" description="PLG_CONTENT_IETEIKT_DRAUGIEM_PREFIX_DESC" />
-			</fieldset>
+				<field name="prefix" type="text" size="32" default=""
+				label="PLG_CONTENT_IETEIKT_DRAUGIEM_PREFIX_LABEL"
+				description="PLG_CONTENT_IETEIKT_DRAUGIEM_PREFIX_DESC" />
+			<field
+					name="group"
+					type="paramhelper"
+					function="@group" level="3">
+						<option for="source" value="both" hideRow="true">catsid,k2catsid</option>
+						<option for="source" value="com_k2" hideRow="true">k2catsid</option>
+						<option for="source" value="com_content" hideRow="true">catsid</option>
+				</field>
 
+				<field
+					name="settingcontent"
+					type="spacer"
+					default=""
+					function="@title"
+					label="PLG_CONTENT_IETEIKT_DRAUGIEM_COMPONENT_LABEL"
+					description="PLG_CONTENT_IETEIKT_DRAUGIEM_COMPONENT_DESC" level="2" />
+				<field
+					name="source"
+					type="radio"
+					default="com_content"
+					level="3"
+					label="PLG_CONTENT_IETEIKT_DRAUGIEM_ENABLE_LABEL"
+					description="PLG_CONTENT_IETEIKT_DRAUGIEM_ENABLE_DESC">
+						<option value="both">PLG_CONTENT_IETEIKT_DRAUGIEM_VALUE_BOTH_LABEL</option>
+						<option value="com_k2">PLG_CONTENT_IETEIKT_DRAUGIEM_VALUE_K2_LABEL</option>
+						<option value="com_content">PLG_CONTENT_IETEIKT_DRAUGIEM_VALUE_COM_CONTENT_LABEL</option>
+				</field>
+				<field
+					name="catsid"
+					type="category"
+					extension="com_content"
+					default=""
+					label="PLG_CONTENT_IETEIKT_DRAUGIEM_SELECT_CATEGORY_LABEL"
+					multiple="true"
+					size="10"
+					description="PLG_CONTENT_IETEIKT_DRAUGIEM_SELECT_CATEGORY_DESC" />
+				<field
+					name="k2catsid"
+					type="k2category"
+					default=""
+					label="PLG_CONTENT_IETEIKT_DRAUGIEM_SELECT_K2_CATEGORY_LABEL"
+					description="PLG_CONTENT_IETEIKT_DRAUGIEM_SELECT_K2_CATEGORY_DESC" />
+				<field
+					name="menusid"
+					type="menuitem"
+					default=""
+					label="PLG_CONTENT_IETEIKT_DRAUGIEM_SELECT_MENU_ID_LABEL"
+					multiple="true"
+					size="20"
+					description="PLG_CONTENT_IETEIKT_DRAUGIEM_SELECT_MENU_ID_DESC"/>
+			</fieldset>
 		</fields>
 	</config>
 </extension>
