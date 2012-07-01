@@ -44,7 +44,7 @@ class plgContentIeteiktDraugiem extends JPlugin
 			$ieteiktDraugiemPrefix 	= (!empty($prefix)) ? '&amp;titlePrefix=' . urlencode($prefix) : "";
 
 			$group = $this->params->get('group', 'both');
-			if (($group == 'both' || $group == 'com_content') && $context = 'com_content.article')
+			if (($group == 'both' || $group == 'com_content') && $context == 'com_content.article')
 			{
 				$categories = $params->get('catsid', array());
 				if (!empty($categories) && !in_array($article->catid, $categories))
@@ -61,7 +61,7 @@ class plgContentIeteiktDraugiem extends JPlugin
 				$link . $ieteiktDraugiemPrefix . '"></iframe></div>';
 			}
 			// K2 rakstiem
-			elseif (($group = 'both' || $group = 'com_k2') && $context = 'com_k2.item')
+			elseif (($group == 'both' || $group == 'com_k2') && $context == 'com_k2.item')
 			{
 				$k2Categories = $params->get('k2catsid', array());
 				if (!empty($k2Categories) && !in_array($article->catid, $k2Categories))
